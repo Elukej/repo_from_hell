@@ -1,0 +1,37 @@
+<html>
+
+	<head>
+		
+		<title>Dobra Forma</title>
+
+	</head>
+	
+	<body>
+	
+		<form>
+			
+			<p>Broj: <input type="number"></p>
+			<p>Username: <input type="text" placeholder="your username"></p> <!-- value je default vrednost textboxa ovde -->
+			<p>Stay logged in: <input type="checkbox" checked></p> <!-- ako stavimo checked to stavlja default vrednost da bude chekirano -->
+			<p>Under 18: <input type="radio" name="age" value="u18"></p>
+			<p>Over 18: <input type="radio" name="age" value="o18"></p> <!-- value za radio button sluzi da se posle u kodu upitom vrednosti sazna koje je radio dugme pritisnuto -->
+			<!-- da bi radio button selektovao samo jedno dugme na formi
+			od ponudjenih, mora se grupisati sa istim imenom (name="age" na primer)-->
+			<p>Favourite food:
+			<select>
+				
+				<option>Pizza</option>
+				<option selected>Ice cream</option> <!-- selected oznacava deafultno selektovanu opciju -->
+				<option>Sandwiches</option>
+				
+			</select>
+			</p>
+			<p><input type="submit" value="Prijava"></p> <!-- value je ovde natpis na dugmetu -->
+			
+		
+		</form>
+		
+	
+	</body>
+	
+</html>
