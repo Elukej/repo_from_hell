@@ -1,0 +1,5 @@
+Ovo je probni fajl
+U njemu treba da se
+demonstrira rad skripte
+koja cita iz fajla
+POZDRAV!!!
