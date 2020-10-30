@@ -1,0 +1,42 @@
+<html>
+
+	<head>
+		
+			<title> Webpage with style</title>
+			<style type="text/css">
+			
+				.red	{					
+							color:red;
+							
+						}
+				.large	{
+							font-size:200%;
+						
+						}
+				#green	{
+							color:green;
+					
+						}
+				.underlined	{
+								text-decoration:underline;
+							
+							}
+							
+						
+				<!-- tacka u imenu oznacava da se radi o klasi koja se posle dodeljuje tagovima selektivno
+				NAPOMENA:komentari ne smeju izmedju {} da idu jer ih css ne parsira kao html 
+				# je oznaka za id pa css ovako definisan objekat primenjuje na tagove sa tim id-om-->
+			</style>
+	</head>
+	
+	<body>
+		
+		<h1>Css is cool</h1>
+		<p class="red large">The quick brown fox jumped over the lazy dog</p> <!-- dodavanje vise klasa u tag se radi dodavanjem razmaka samo npr clas="red large zxt sds ..." -->
+		<p class="large">Obican tekst na koji ne primenjujemo nasu klasu red </p>
+		<p id="green" class="large"><strong>Neki drugi tekst.</strong> <span class="underlined red">A ovo je podvuceni tekst.</span></p>	
+		<!-- span tag sluzi da se na deo teksta u paragarafu primeni drugacije stilizovanje nego sto je definisano ceo za paragraf --> 
+	
+	</body>
+	
+</html>

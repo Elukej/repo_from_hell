@@ -1,0 +1,56 @@
+<html>
+
+	<head>
+		
+			<title> Webpage with style</title>
+			<style type="text/css">
+			
+				.red	{					
+							color:red;
+							
+						}
+				.large	{
+							font-size:200%;
+						
+						}
+				#green	{
+							color:green;
+					
+						}
+				.underlined	{
+								text-decoration:underline;
+							
+							}
+							
+				#first-section	{
+									color:blue;
+									background-color:pink;
+									width:50%;
+								}
+				#second-section {
+									background-color:yellow;
+									width:500px;
+								
+								}
+				<!-- tacka u imenu oznacava da se radi o klasi koja se posle dodeljuje tagovima selektivno
+				NAPOMENA:komentari ne smeju izmedju {} da idu, ni izmedju objekata jer ih css ne parsira kao html 
+				# je oznaka za id pa css ovako definisan objekat primenjuje na tagove sa tim id-om-->
+				<!-- width moze sa brojem piksela tipa 100px ili sa procentima da se daje tipa 50% -->
+			</style>
+	</head>
+	
+	<body>
+		
+		<div id="first-section"> 	
+			<p>The quick brown fox jumped over the lazy dog</p> <!-- dodavanje vise klasa u tag se radi dodavanjem razmaka samo npr clas="red large zxt sds ..." -->
+			<p>Obican tekst na koji ne primenjujemo nasu klasu red </p>
+		</div>
+		
+		<div id="second-section"
+			<h1>Css is cool</h1>
+			<p id="green" class="large"><strong>Neki drugi tekst.</strong> <span class="underlined red">A ovo je podvuceni tekst.</span></p>	
+		<!-- span tag sluzi da se na deo teksta u paragarafu primeni drugacije stilizovanje nego sto je definisano ceo za paragraf --> 
+		</div>
+	</body>
+	
+</html>
