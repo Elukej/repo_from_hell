@@ -1,0 +1,34 @@
+<html>
+	<head>
+	
+		<title>for loop</title>
+
+	</head>
+	
+	<body>
+		
+		<p>How many fingers are you holding up?</p>
+		
+		<input type="text" id="myInput" placeholder="hold up fingers">
+		
+		<button id="myButton">Start game!</button>
+		
+		<script type="text/javascript">
+			
+			document.getElementById("myButton").onclick = function () {
+			
+					var fingers = Number(document.getElementById("myInput").value)
+					if (fingers > 5 || fingers < 0)  alert(" Only one hand jackass! 0 to 5 fingers!")
+					else {
+						var i = 1;
+						while (fingers != Math.floor(Math.random() * 6)) i++;
+						alert("I guessed in " + i + " attempts");
+						}
+			}
+			
+			
+		</script>
+	
+	</body>
+
+</html>

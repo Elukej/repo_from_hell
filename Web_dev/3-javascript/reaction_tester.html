@@ -1,0 +1,166 @@
+<!doctype html>
+<html>
+	<head>
+    	
+		<title>Reaction tester</title>
+		
+		<style type="text/css">
+			
+			html {
+				height:100%;
+				}
+				
+			body {
+				height:100%;
+			}
+			
+			#container {
+				display:block;
+
+			}
+			#circle-square {
+				display:none;
+				position:absolute;
+				top:150px;
+				left:370px;
+				width:300px;
+				height:300px;
+				background-color:blue;
+				border-radius:0%;
+				margin:0;
+			}
+			#top {
+				display:none;
+				justify-content:center;
+				align-items:center;
+				width:100%;
+				height:100%;
+				}
+
+			
+			#kraj {
+
+				text-align:center;
+				border-bottom:3px solid black;
+				min-height:100px;
+				min-width:100px;
+
+			}
+
+		</style>
+		
+    </head>
+    <body>
+			<div id="container">
+				<h1> Test Your Reactions! </h1>
+				<p>Click on the boxes and circles as quickly as you can!</p>
+				<p id="time"><strong>Your time: </strong></p>
+			</div>
+			<div id="circle-square"></div>
+			<div id="top"><h1 id="kraj"></h1></div>
+
+          <script type="text/javascript">
+				function rand(n){
+					return (Math.floor(Math.random()*n))
+				}
+				
+				function showResult() {
+					var score = 0;
+					
+					for (var i=0; i < niz.length; i++) score += niz[i];
+					
+					if (score <= 5) document.getElementById("kraj").innerHTML = "Vreme: " + (Math.round(score*1000)/1000) + "s<br>Rezultat: Natprosecan <br>Cestitke! Tebe mama nije lagala govoreci da si poseban!" 
+					else if (score <= 10) document.getElementById("kraj").innerHTML = "Vreme: " + (Math.round(score*1000)/1000) + "s<br>Rezultat: Standardan<br> Sad znas da te je mama lagala da si poseban! Samo da ti jos nije rekla i da si lep i pametan..."
+					else document.getElementById("kraj").innerHTML = "Vreme: " + (Math.round(score*1000)/1000) + "s<br>Rezultat: Katastrofa <br>Batice, ne znam sta bih na tvom mestu ... <br>Jesi razmisljao da se ubijes? Sa tvojim refleksima, i da jesi, poziveo bi jos 100 godina"			
+					document.getElementById("container").style.display = "none";
+					document.getElementById("top").style.display = "flex";
+				}
+				
+				function generateElement() {
+					var height = window.innerHeight;
+					var width = window.innerWidth;
+					
+					if ((height <160 && width <380) || height <150 || width <370) {
+								alert("Dude are you kidding me? You play this on a potato? Resize, reload then play!")
+								return
+								}
+					
+
+					document.getElementById("circle-square").style.width = (10 + rand(291)) + "px";
+					document.getElementById("circle-square").style.height = document.getElementById("circle-square").style.width;
+					
+					if (parseInt(document.getElementById("circle-square").style.width) > width) 
+					{
+						document.getElementById("circle-square").style.width = width + "px";
+						document.getElementById("circle-square").style.height = width;
+					}
+					if (parseInt(document.getElementById("circle-square").style.height) > height)
+					{
+						document.getElementById("circle-square").style.width = height + "px";
+						document.getElementById("circle-square").style.height = height + "px";
+					}
+					
+					
+					document.getElementById("circle-square").style.borderRadius = 50*rand(2) + "%";
+					document.getElementById("circle-square").style.backgroundColor = "#" + Number(rand(2**25)).toString(16);
+					
+					topi = rand(height - parseInt(document.getElementById("circle-square").style.height));
+					lefti = rand(width - parseInt(document.getElementById("circle-square").style.width));
+
+					
+					document.getElementById("circle-square").style.top = topi + "px";
+					document.getElementById("circle-square").style.left = lefti + "px";
+					
+					if (topi < 150 && lefti < 370) {
+						document.getElementById("circle-square").style.left = 370 + "px";
+						document.getElementById("circle-square").style.top = 150 + "px";
+					
+						if (((height - 150) < parseInt(document.getElementById("circle-square").style.height)) || ((width - 370 < parseInt(document.getElementById("circle-square").style.width))))
+							{
+								document.getElementById("circle-square").style.height = Math.min(height - 150, width - 370) + "px";
+								document.getElementById("circle-square").style.width = document.getElementById("circle-square").style.height; 
+								if (rand(2)) {
+											document.getElementById("circle-square").style.top = rand(150) + "px";
+											document.getElementById("circle-square").style.left = (370 + rand(width - 370 - parseInt(document.getElementById("circle-square").style.width))) + "px";
+										}
+								else {
+											document.getElementById("circle-square").style.left = rand(370) + "px";
+											document.getElementById("circle-square").style.top  = (150 + rand(height - 150 - parseInt(document.getElementById("circle-square").style.height))) + "px";
+									}															
+					
+					
+					
+									}				
+				
+				
+					}
+					
+				
+					document.getElementById("circle-square").style.display = "block";
+					t1 = performance.now()
+					
+				}
+				
+// MAIN FUNKCIJA				
+				var timeoutId;	var t1;	 var t2;	var counting = 0;	let niz = new Array();
+				generateElement();
+// KRAJ MAIN
+
+				document.getElementById("circle-square").onclick = function () {
+				    
+					document.getElementById("circle-square").style.display = "none"
+					t2 = performance.now();
+					niz.push(Math.round((10*(parseInt(t2-t1)))/10)/1000);
+					console.log(niz);
+					counting++;
+					
+					document.getElementById("time").innerHTML = "<strong>Your time: " + niz[counting-1] +  "s </strong>";
+				    if (counting < 10) timeoutId = window.setTimeout(generateElement, 500 + rand(1500));
+					else showResult();
+						
+					
+				}
+				
+      	</script>
+    </body>
+</html>
