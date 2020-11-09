@@ -316,3 +316,32 @@ quickSort (x:xs) = quickSort (xl) ++ [x] ++ quickSort (xr)
 --brzi sort
 
 
+--ispis ::  Eq a => a -> [a] -> [a] -> [a] ->  [[a]]
+p = (threadDelay (1000000)) 
+ispis n a b c  p = [[x | x <- a, x /= n]] ++ [[y | y <- b, y /= n]] ++ [[z | z <- c, z /= n]]
+                        
+
+hanoj :: (Eq a, Num a, Num b, Ord b) => a -> a -> [b] -> [b] -> [b] -> [[b]]
+
+hanoj n k [0] [0] list = []
+
+
+hanoj n k (x:xs) (y:ys) (z:zs)
+                   | k /= 1 && x /= 0 && (x < y || y == 0)     =  ispis (0) xs (x:y:ys) (z:zs) p ++ hanoj n 2  xs (x:y:ys) (z:zs)
+
+                   | k /= 1 && x /= 0 && (x < z || z == 0)     =  ispis (0) xs (y:ys) (x:z:zs) p ++ hanoj n 3 xs (y:ys) (x:z:zs)
+                  
+                   | k /= 2 && y /= 0 && (y < z || z == 0)     =  ispis (0) (x:xs) ys (y:z:zs) p ++ hanoj n 3 (x:xs) ys (y:z:zs)
+                   
+                   | k /= 2 && y /= 0 && (y < x || x == 0)     =  ispis (0) (y:x:xs) ys (z:zs) p ++ hanoj n 1 (y:x:xs) ys (z:zs) 
+                 
+                   | k /= 3 && z /= 0 && (z < x || x == 0)     =  ispis (0) (z:x:xs) (y:ys) zs p  ++ hanoj n 1 (z:x:xs) (y:ys) zs
+         
+                   | k /= 3 && z /= 0 && (z < y || y == 0)     =  ispis (0) (x:xs) (z:y:ys) zs p  ++ hanoj n 2 (x:xs) (z:y:ys) zs
+
+                   | otherwise                                 =  if (x == 0 && z == 0) then hanoj n 0 [0] (y:ys) [0] else []
+
+
+
+
+
