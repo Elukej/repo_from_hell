@@ -22,7 +22,9 @@ hanoj n k (x:xs) (y:ys) (z:zs)
          
                    | k /= 3 && z /= 0 && (z < y || y == 0)     =  ispis (0) (x:xs) (z:y:ys) zs ++ hanoj n 2 (x:xs) (z:y:ys) zs
 
-                   | otherwise                                 =  if (x == 0 && z == 0) then hanoj n 0 [0] (y:ys) [0] else []
+                   | otherwise                                 =  []
+
+-- if (x == 0 && z == 0) then hanoj n 0 [0] (y:ys) [0] else []
 
 
 main :: IO ()
@@ -32,6 +34,15 @@ main = do putStrLn ("Unesite Broj diskova na Hanojskoj kuli: ")
           lista <- return (hanoj n 0 ([1..n] ++ [0]) [0] [0])
           lista2 <- return ([ take 3 $ drop y lista | y <- [0,3..(length (lista) - 3)]])
           forM_ lista2 $
-                \content -> do print content
-                               threadDelay 2000000
+                \content -> do if (odd n) 
+                                 then do
+                                   print ([head content] ++ (reverse $ tail content))
+                                   threadDelay 2000000
+                                 else do
+                                   print content
+                                   threadDelay 2000000
+ 
+
+
+
 
