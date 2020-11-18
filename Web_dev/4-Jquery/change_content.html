@@ -1,0 +1,62 @@
+<html>
+  
+	<head>
+        
+		<title>Jquery</title>
+       
+	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+       <!-- Prvi nacin ukljucivanja jquery koda je preko ovog gore linka, sledeci je ukljucivanje preko fajla sa celom bibliotekom
+       <script src="jquery-3.5.1"></script>	   -->
+	   <style type="text/css">
+	     * {
+				margin:0;
+				padding:0;
+				box-sizing:border-box;
+		    }
+		 #circle {
+		 
+					background-color:green;
+					border-radius:50%;
+					height:100px;
+					width:100px;
+					float:left;
+					margin:10px;
+				}
+		 .square {
+					background-color:red;
+					height:100px;
+					width:100px;
+					float:left;
+					margin:10px;
+				}
+	   
+	   </style>
+	</head>
+	<body>
+	
+		<div id="circle"></div>
+		<div class="square"></div>
+		<div class="square"></div>
+		<p>This is some text</p>
+		<iframe src="https://www.codestars.com/" width="560px" height="350px"></iframe>
+		
+		<script type="text/javascript"> 
+		  $("#circle").click(function() {
+				alert($("p").html());   // ovako se poziva sadrzaj html taga
+				$("p").html("This text has changed!"); // a ovako se menja
+			});
+		var i=0;
+		  $("#circle").hover(function() {
+				i++;
+				console.log("u hovered me " + i +  " times")
+				$("iframe").attr("src","https://www.ecowebhosting.co.uk/")
+		  });
+
+
+		</script>
+	
+	</body>
+  
+
+
+</html>
