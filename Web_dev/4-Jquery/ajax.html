@@ -1,0 +1,66 @@
+<html>
+  
+	<head>
+        
+		<title>Jquery</title>
+       
+	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+       <!-- Prvi nacin ukljucivanja jquery koda je preko ovog gore linka, sledeci je ukljucivanje preko fajla sa celom bibliotekom
+       <script src="jquery-3.5.1"></script>	   -->
+	   <style type="text/css">
+	     * {
+				margin:0;
+				padding:0;
+				box-sizing:border-box;
+		    }
+		 #circle {
+		 
+					background-color:green;
+					border-radius:50%;
+					height:100px;
+					width:100px;
+					margin:10px;
+				}
+		 .square {
+					background-color:red;
+					height:100px;
+					width:100px;
+					margin:10px;
+				}
+		 #hidden {
+			display:none;
+		}
+		#toogle {
+			position:fixed;
+		}
+	   
+	   </style>
+	</head>
+	<body>
+	
+		<div id="circle"></div>
+
+		
+		<script type="text/javascript"> 
+			$("#circle").click(function () {
+			
+				$(this).css("height","200px");
+				$(this).css("width","200px");
+				$(this).animate({width:"400px",
+								 height:"400px", 
+								 marginLeft:"100px",
+								 marginTop:"100px",
+								 },3000, function () {
+														$(this).css("background-color","red");
+													
+								}); //animate funkcija, argumente koje menja unutar {}, i na kraju vreme koliko da traje animacija, a posle njega moze callback funkcija
+								
+			});
+		
+		</script>
+	
+	</body>
+  
+
+
+</html>

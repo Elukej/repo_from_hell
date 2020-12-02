@@ -1,0 +1,162 @@
+
+		* {
+			margin: 0;
+			padding: 0;
+			box-sizing: border-box;
+		}
+
+		.card-deck {
+			max-width: 100%;
+		}
+		
+		body {
+			position:relative;
+			padding-top: 210px;
+			width: 100%;
+		}
+		.scrollspy {
+			overflow-y:scroll;
+			/* postion relative; */
+		}
+		nav {
+			width: 100%;
+		}
+		.nav-left-part {
+			display:flex;
+			flex-direction:row;
+			justify-content:space-between;
+			
+		}
+		.nav-gray-color {
+			color:rgba(0,0,0,0.5);
+		}
+		.nav-link:hover, .nav-link-active  {
+			color:rgba(0,0,0,0.9);
+		}
+		hr {
+			width:100%;
+			border:1px solid grey;
+		}
+		.jumbotron-div {
+			position:relative;
+		
+		}
+		
+		.overlay {
+		
+			position:absolute;
+			top:0; 
+			left:0;
+			width:100%;
+			height:100%;
+			opacity:1;
+		}
+		
+		.ontop {
+			display:flex;
+			flex-direction:column;
+			justify-content:space-around;
+			position:relative;
+			align-items:center;
+			height:1000px;
+			z-index:1000;
+		}
+		#description-paragraph {
+			width:100%;
+			font-weight:bold;
+		
+		}
+		#email {
+			width:150px;
+			margin-top:16px;
+		}
+		
+		#at {
+			border:none;
+			height:36px;
+			border-radius:3px;
+		}
+		
+		#DownloadTheApp {
+			position:relative;
+			background-color:teal;
+			margin-bottom:0;
+			height:500px;
+			
+		
+		}
+		.footer-div {
+			display:flex;
+			flex-direction:column;
+			justify-content:center;
+			align-items:center;
+			position:relative;
+		
+		}
+		.footer-div div a {
+			
+			position:absolute;
+			width:260px;
+			height:65px;
+			top:18px;
+			left:20px;
+		}
+		.footer-div a:focus {
+			border:1px solid yellow;
+			border-radius:4px;
+		}
+		.footer-div a:hover {
+			background-color:grey;
+			opacity:0.5;
+		}
+		.card-center {
+			margin: 0 auto;
+		}
+		@media (min-width:448px) {
+			body {
+				padding-top: 130px;
+			}
+			.width-small-50 {
+				width:50%;
+			}
+		
+		}
+		
+		@media (min-width: 576px) {
+		
+			body {
+				padding-top: 80px;
+			}
+			.ontop {
+				height:800px;
+			}
+			#description-paragraph {
+			width:75%;
+			
+			}
+			#email {
+				width:300px;
+				margin-top:0;
+			}
+			.card-overflow {
+				overflow-y:scroll;
+			}
+		}
+		
+		@media (min-width: 920px) {
+		
+			body {
+				padding-top: 50px;
+			}
+			.ontop {
+				height:800px;
+			}
+			#description-paragraph {
+				width:50%;
+		
+			}
+			.card-overflow {
+				overflow-y:none;
+			}
+
+		}

@@ -1,0 +1,57 @@
+<html>
+  
+	<head>
+        
+		<title>Jquery</title>
+       
+	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+       <!-- Prvi nacin ukljucivanja jquery koda je preko ovog gore linka, sledeci je ukljucivanje preko fajla sa celom bibliotekom
+       <script src="jquery-3.5.1"></script>	   -->
+	   <style type="text/css">
+	     * {
+				margin:0;
+				padding:0;
+				box-sizing:border-box;
+		    }
+		 #circle {
+		 
+					background-color:green;
+					border-radius:50%;
+					height:100px;
+					width:100px;
+					float:left;
+					margin:10px;
+				}
+		 .square {
+					background-color:red;
+					height:100px;
+					width:100px;
+					float:left;
+					margin:10px;
+				}
+	   
+	   </style>
+	</head>
+	<body>
+	
+		<div id="circle"></div>
+		<div class="square"></div>
+		<div class="square"></div>
+		<script type="text/javascript"> 
+		  $("#circle").click(function() {
+					alert("circle was clicked");
+			});
+		  $(".square").click(function() {
+					alert("square was clicked");   //dolarcic omogucava selektovanje objekata kao da smo u css-u: # je za id, . je za klasu, generalno ime (div) je za sve tagove tog tipa
+			});
+		  $("div").click(function() {
+					alert("div was clicked");
+			});
+	</script>
+	</script>
+	
+	</body>
+  
+
+
+</html>

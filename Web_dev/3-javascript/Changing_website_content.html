@@ -1,0 +1,51 @@
+<html>
+
+	<head>
+	
+		<title>Responding to click </title>
+	
+	</head>
+	
+	<body>
+		
+		<p id="text">Hello World!</p>
+		
+		<button id="myButton">Change text</button>
+	
+		<p id="secondParagraph">Javascript is ... </p>
+		<button id="secondButton">Append text</button>
+		
+		<p id="thirdParagraph"></p>
+		<button id="thirdButton">Reveal text</button>
+		
+		
+		<script type="text/javascript">
+			
+			let x=false;
+			document.getElementById("myButton").onclick = function(){
+					
+						/*alert("Button clicked!");*/
+						
+						 document.getElementById("text").innerHTML = "Hello Luka!";
+				}
+			
+			document.getElementById("secondButton"). onclick = function () {
+						
+						if (!x) 	{
+										document.getElementById("secondParagraph").innerHTML += "awesome!";
+										document.getElementById("secondParagraph").innerHTML = "I think " + document.getElementById("secondParagraph").innerHTML;
+										x=true;
+								}
+				}
+			
+			document.getElementById("thirdButton"). onclick = function () {
+								
+								document.getElementById("thirdParagraph").innerHTML = "<h1>The invisibility broken!</h1>"
+							
+				}
+			
+		</script>
+		
+	</body>
+	
+</html>
