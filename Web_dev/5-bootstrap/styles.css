@@ -112,6 +112,13 @@
 		.card-center {
 			margin: 0 auto;
 		}
+
+		.flex-small-column {
+			flex-direction:column;
+			align-items:center;
+			justify-content:stretch;
+		}
+
 		@media (min-width:448px) {
 			body {
 				padding-top: 130px;
@@ -125,7 +132,7 @@
 		@media (min-width: 576px) {
 		
 			body {
-				padding-top: 80px;
+				padding-top: 50px;
 			}
 			.ontop {
 				height:800px;
@@ -138,16 +145,14 @@
 				width:300px;
 				margin-top:0;
 			}
-			.card-overflow {
-				overflow-y:scroll;
+			.card-width {
+				width:60% !important;
+			
 			}
 		}
 		
-		@media (min-width: 920px) {
-		
-			body {
-				padding-top: 50px;
-			}
+		@media (min-width: 992px) {
+
 			.ontop {
 				height:800px;
 			}
@@ -156,7 +161,11 @@
 		
 			}
 			.card-overflow {
-				overflow-y:none;
+				overflow-y:scroll;
 			}
-
+	
+			.flex-small-column {
+			flex-direction:row;
+			align-items:stretch;
+			}
 		}
