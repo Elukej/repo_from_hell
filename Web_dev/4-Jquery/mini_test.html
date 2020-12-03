@@ -1,0 +1,131 @@
+<html>
+  
+	<head>
+        
+		<title>Jquery</title>
+       
+	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+       <!-- Prvi nacin ukljucivanja jquery koda je preko ovog gore linka, sledeci je ukljucivanje preko fajla sa celom bibliotekom
+       <script src="jquery-3.5.1"></script>	   -->
+	   <style type="text/css">
+	    /* * {
+				margin:0;
+				padding:0;
+				box-sizing:border-box;
+		    }*/
+		 body {
+			font-family: helvetica, sans-serif;
+			font-size:200%;
+		}
+		input {
+		
+			padding 5px 5px 12px 5px;
+			font-size:25px;
+			border-radius:5px;
+			border: 1px solid gray;
+			width:320px;
+		}
+		label {
+			//position:relative;
+			//top:4px;
+			
+			}
+		#email {
+			//position:relative;
+			//left:67px;
+
+		}
+		#password {
+			//position:relative;
+			//left:8px;
+
+		}
+		#wrapper {
+			width: 600px;
+			margin:0 auto;
+		//	border: 2px solid black;
+		}
+		.form-element {
+			display:flex;
+			justify-content:space-between;
+			margin-top:5px;
+		}
+		#submitButton {
+			width:150px;
+			margin-left:280px;
+		}
+		#errorMessage {
+		font-size:80%;
+		color:red;
+		}
+		#successMessage {
+			font-size:80%;
+			color:green;
+			display:none;
+		}
+	   </style>
+	</head>
+	<body>
+		<div id="wrapper">
+			<div id="successMessage"><p>You did it! Congratulations!</p></div>
+			<div id="errorMessage"></div>
+			<div class="form-element">
+				<label for="email">Email</label>
+				<input type="text" name="email" id="email" placeholder="eg.yourname@gmail.com">
+			</div>	
+			
+			<div class="form-element">
+				<label for="phone">Telephone</label>
+				<input type="text" name="phone" id="phone" placeholder="eg.0123456789">
+			</div>	
+			
+			<div class="form-element">
+				<label for="password">Password</label>
+				<input type="password" name="password" id="password">
+			</div>	
+		    <div class="form-element">
+				<label for="passwordConfirm">Confirm Password</label>
+				<input type="password" name="password" id="passwordConfirm">
+			</div>	
+			<div class="form-element">
+				<input type="submit" id="submitButton" value="Sign Up">
+			</div>	
+		
+		</div>
+		<script type="text/javascript"> 
+			function isEmail(email) {
+				var regex = /^([a-zA-Z0-9_.+-])+\@(([a-zA-Z0-9-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+				console.log(regex.test(email));
+			return regex.test(email);
+			}
+			$("#submitButton").click(function () {
+				var errorMessage = "";
+				var fieldsMissing = "";
+				if ($("#email").val() == "") fieldsMissing += "Email, ";
+				if ($("#phone").val() == "") fieldsMissing += "Telephone, ";
+				if ($("#password").val() == "") fieldsMissing += "Password, ";
+				if ($("#passwordConfirm").val() == "") fieldsMissing += "Confirm Password";
+				if (fieldsMissing != "") errorMessage += "<p>The following fields are missing: </p><p>" + fieldsMissing + "</p>";
+				
+				if (!isEmail($("#email").val()) && $("#email").val() != "") {
+					errorMessage += "<p>Your email adress is not valid</p>";
+				}
+				if ($.isNumeric($("#phone").val()) == false && $("#phone").val() != "") {
+					errorMessage += "<p>Your phone is not valid</p>"
+				}
+				if ($("#password").val() != $("#passwordConfirm").val()) {
+					errorMessage += "<p>Password confirmation is wrong</p>"
+				}
+				if (errorMessage) $("#errorMessage").html(errorMessage);
+				else {
+						$("#successMessage").show();
+						$("#errorMessage").hide();
+					}
+			});
+		</script>
+	
+	</body>
+  
+
+
+</html>

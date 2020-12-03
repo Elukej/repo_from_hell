@@ -1,0 +1,28 @@
+<html>
+	<head>
+	
+		<title>If statement</title>
+
+	</head>
+	
+	<body>
+		
+		<p>What's the magic word?</p>
+		<input type="text" id="myInput">
+		<button id="myButton">submit</button>
+		
+		<script type="text/javascript">
+			
+			document.getElementById("myButton").onclick = function () {
+						
+						var text = document.getElementById("myInput").value;
+						if (text == "please" || text == "PLEASE" || text == "Please" ) alert("Correct");
+						else alert("Wrong! Try again!");
+					
+			}
+		
+		</script>
+	
+	</body>
+
+</html>

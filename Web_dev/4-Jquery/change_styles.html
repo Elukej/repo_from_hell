@@ -1,0 +1,59 @@
+<html>
+  
+	<head>
+        
+		<title>Jquery</title>
+       
+	   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script> 
+       <!-- Prvi nacin ukljucivanja jquery koda je preko ovog gore linka, sledeci je ukljucivanje preko fajla sa celom bibliotekom
+       <script src="jquery-3.5.1"></script>	   -->
+	   <style type="text/css">
+	     * {
+				margin:0;
+				padding:0;
+				box-sizing:border-box;
+		    }
+		 #circle {
+		 
+					background-color:green;
+					border-radius:50%;
+					height:100px;
+					width:100px;
+					float:left;
+					margin:10px;
+				}
+		 .square {
+					background-color:red;
+					height:100px;
+					width:100px;
+					float:left;
+					margin:10px;
+				}
+	   
+	   </style>
+	</head>
+	<body>
+	
+		<div id="circle"></div>
+		<div class="square"></div>
+		<div class="square"></div>
+		<script type="text/javascript"> 
+		  $("#circle").click(function() {
+				$("#circle").css("width", "400px");
+				$("#circle").css("background-color","red"); //ovako menjamo stil
+				alert($("#circle").css("background-color")); // a ovako dobijamo vrednost nekog stila nazad
+				alert($("body").css("width"));
+			});
+		  $("div").click(function() {
+				$(this).css("display","none");
+				if ($(this).attr("id") == "circle") alert("You clicked on a circle");
+				else alert("You clicked on a square");
+		  });
+
+		</script>
+	
+	</body>
+  
+
+
+</html>

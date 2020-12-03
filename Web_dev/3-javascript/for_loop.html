@@ -1,0 +1,28 @@
+<html>
+	<head>
+	
+		<title>for loop</title>
+
+	</head>
+	
+	<body>
+		
+		<div id="tweetdiv"></div>
+		
+		<script type="text/javascript">
+			
+			var tweetString = ""; //ako se ne inicijalizuje kao nulti string, ispisace u prvom redu undefined u ispisu dole!
+			var tweets = ["Hi everyone!", "I love cornflakes!", "Night night :)", "Sweet dreams!"];
+			
+			for (var i = 0; i < tweets.length; i++) {
+				
+				tweetString += "<p>" + tweets[i] + "</p>";
+			
+			}
+			document.getElementById("tweetdiv").innerHTML = tweetString;
+		
+		</script>
+	
+	</body>
+
+</html>
