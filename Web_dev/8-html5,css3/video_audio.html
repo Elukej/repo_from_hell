@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>HTML 5 AND CSS 3</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum scale=1.0, user-scalable=no, minimal-ui">
+	
+	</head>
+	
+	<body>
+		<video id="video" width="320" height="240" controls autoplay> <!-- controls daje kontrole nad videom -->
+			<source src="big_buck_bunny_720p_1mb.mp4" type="video/mp4">
+			Please upgrade your browser
+		</video>
+		<button id="play">Play</button>
+		
+		<audio controls autoplay>
+			<source src="file_example_MP3_700KB.mp3" type="audio/mpeg">
+			Please upgrade your browser!
+		</audio>
+		
+		<script>
+			
+			document.getElementById("play").onclick = function() {
+				if (document.getElementById("video").paused) {
+					this.innerHTML = "Pause";
+					document.getElementById("video").play();
+				}
+				else {
+					this.innerHTML = "Play";
+					document.getElementById("video").pause();
+				}
+			}
+		
+		</script>
+		
+	</body>
+</html>
+		

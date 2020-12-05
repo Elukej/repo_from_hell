@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>HTML 5 AND CSS 3</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimal-ui">
+	
+		<style>
+			
+			#gradient {
+				width:300px;
+				height:200px;
+				background-color:blue;
+				background: linear-gradient(to bottom right,white,red,green,blue);	/* prvi parametar odredjuje pravac (to left, to right, to top, to bottom, to top-left,to top-right, to bottom left, to bottom-right) */ 			
+			}
+			#radialGradient {
+				width:300px;
+				height:200px;
+				background-color:blue;
+				background: radial-gradient(white,red,green,blue);	/* od cedntra ka periferiji */ 			
+			}
+			h2 {
+				text-shadow: 2px 2px 4px green;
+				color:white;
+			}
+			h3 {
+				text-shadow: 0 0 5px red, -5px -5px 4px yellow; /* utrpavanje senki u vise pravaca*/
+			}	/* parametri senke su ofset u odnosu na gore levo, blur i boja. blur zapravo pravi senku time sto ukida deo boje i ostavlja kao premaz */
+		
+			#shadow {
+				width:200px;
+				height:200px;
+				box-shadow: 12px 12px 6px grey ;
+				background-color:antiquewhite;
+			
+			}
+		</style>
+	
+	</head>
+	
+	
+	<body>
+		<h2>This text has a shadow</h2>
+		<h3>This text will glow</h3>
+		<div id="shadow")> </div>
+		</br>
+		<div id="gradient"> </div>
+		<div id="radialGradient"> </div>
+		
+	</body>
+</html>
+		

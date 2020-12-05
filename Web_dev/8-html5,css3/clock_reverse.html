@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>HTML 5 AND CSS 3</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimal-ui">
+	
+	<style>
+		#colors {
+			position:relative;
+		}
+		body {
+			display:flex;
+			flex-direction:column;
+			justify-content:center;
+			align-items:center;
+			height:100vh;
+			/*background-image:url(https://images.unsplash.com/photo-1605693858835-602979e9b200?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80);*/
+			background-image:url(https://www.theleidencollection.com/wp-content/uploads/2018/12/RR-114-OverallFront-768x899.jpg);
+			background-size: cover;
+			background-repeat: no-repeat;
+		}
+		
+		#colors {
+			height:250px;
+			width:250px;
+		
+		}
+		@media (min-width:400px) {
+		
+		
+			#colors {
+				height:400px;
+				width:400px;
+			}
+		
+		
+		}
+	</style>
+	
+	</head>
+	
+	<body>
+		<canvas id="header" width="400" height="100"></canvas>
+		<canvas id="colors" width="400" height="400">
+		
+		</canvas>
+		
+	
+		<script>
+		function updateClock () {
+				
+			var canvas = document.getElementById("colors");
+			var graphics = canvas.getContext("2d");
+
+			var CX = canvas.width / 2,
+				CY = canvas.height / 2,
+				sx = CX-10,
+				sy = CY-10;
+
+			for(var i = 0; i < 360; i+=0.1){
+				var rad = i * (2*Math.PI) / 360 - Math.PI/2;
+				graphics.strokeStyle = "hsla("+i+", 100%, 50%, 1.0)";   
+				graphics.beginPath();
+				graphics.moveTo(CX, CY);
+				graphics.lineTo(CX + sx * Math.cos(rad), CY + sy * Math.sin(rad));
+				graphics.stroke();
+			}
+			for (var i = 30; i <= 360; i+=30) {
+				var rad = -i * (2*Math.PI) / 360 + Math.PI/2; var j=0;
+				graphics.fillStyle = "hsla("+(-i)+", 100%, 50%, 1.0)";
+				graphics.font = "20px Helvetica";
+				j = (i / 30 + 6);
+				if (j > 12) j = j - 12;
+		
+				var width = graphics.measureText(""+j).width , deltaX=0, deltaY=0;
+				switch (j) {
+					case 10:
+					case 11:
+						{
+							deltaX = -width; deltaY = 20;
+							break;
+						}
+					case 9:
+						{
+							deltaX = sx*(Math.cos(Math.PI * (20/sx)/4) - 1) - width; deltaY = 10;
+							break;
+						}
+					case 7:
+					case 8:
+						{
+							deltaX = -width; deltaY = 0;
+							break;
+						}
+					case 6:
+						{
+							deltaX = -(width/2); deltaY = sy*(Math.cos(Math.PI * (width/sy)/4) - 1);
+							break;
+						}
+					case 4:
+					case 5:
+						{
+							deltaX = 0; deltaY = 0;
+							break;
+						}
+					case 3:
+						{
+							deltaX = sx*(1 - Math.cos(Math.PI * (20/sx)/4)); deltaY = 10;
+							break;
+						}
+					case 1:
+					case 2:
+						{
+							deltaX = 0; deltaY = 20;
+							break;
+						}
+					case 12:
+						{
+							deltaX = -width/2; 
+							deltaY = sy*(1 - Math.cos(Math.PI * (width/sy)/4)) + 20;
+							break;
+						}
+				
+				}
+				
+				graphics.fillText(j + "", CX + sx *Math.cos(rad) + deltaX , CY + sy * Math.sin(rad) + deltaY);
+			}
+				graphics.beginPath();
+				graphics.arc(CX, CY, 8, 0, 2*Math.PI);
+				graphics.strokeStyle = "#000000";
+				graphics.fillStyle = "#000000"
+				graphics.fill();
+				graphics.stroke();
+				
+				var regex = /([0-9]{2}):([0-9]{2}):([0-9]{2})/;
+				var h, min, s, time = new Date();
+				var timeString = time.toString();
+				var n = timeString.search(regex);
+				h = parseInt(timeString[n] + timeString[n+1]);
+				min = parseInt(timeString[n+3] + timeString[n+4]);
+				s = parseInt(timeString[n+6] + timeString[n+7]);
+				graphics.beginPath();
+				graphics.strokeStyle = "#000000";
+				graphics.lineWidth = 2;
+				graphics.moveTo(CX,CY);
+				var rad = 2 * Math.PI / 60;
+				graphics.lineTo(CX + (sx-35) * Math.cos(-(s*rad + Math.PI/2)), CY + (sy-35) * Math.sin(-(s*rad + Math.PI/2)));		
+				graphics.stroke();
+				graphics.beginPath();
+				graphics.lineWidth = 5;
+				graphics.moveTo(CX,CY);
+				graphics.lineTo(CX + (sx-35) * Math.cos(-(min*rad + Math.PI/2)), CY + (sy-35) * Math.sin(-(min*rad + Math.PI/2)));
+				graphics.stroke();
+				graphics.beginPath();
+				graphics.lineWidth = 7;
+				graphics.moveTo(CX,CY);
+				graphics.lineTo(CX + (sx-80) * Math.cos(-((h*5+Math.floor(min/12))*rad + Math.PI/2)), CY + (sy-80) * Math.sin(-((h*5+Math.floor(min/12))*rad + Math.PI/2)));			
+				graphics.stroke();
+
+		}	
+				setInterval(updateClock, 1000);
+				
+			var header = document.getElementById("header");
+			var ctx = header.getContext("2d");
+			
+				hW = header.width; hH=header.height;
+		/*		var textGradient = graphics.createLinearGradient(200,50,300,50);
+				textGradient.addColorStop(0,"black");
+				textGradient.addColorStop(1,"white");
+			
+			graphics.fillStyle = textGradient;
+			graphics.font = "20px Arial";
+			graphics.fillText("My Canvas",200, 50);*/
+			
+
+				var hue=0;
+				var direction=1;
+				
+				ctx.font='25px Verdana';
+				requestAnimationFrame(animate);
+
+				function animate(time){
+				  ctx.fillStyle='hsl('+hue+',100%,50%)';
+				  ctx.fillText('Real LGBT clock', hW/2 - ctx.measureText('Real LGBT clock').width/2 , hH/2 +12.5);    
+				  requestAnimationFrame(animate);
+				  hue+=direction;
+				  if(hue>255){direction*=-1;hue=255;}
+				  if(hue<0){direction*=-1;hue=0;}
+				}
+							
+			
+
+		</script>
+	</body>
+</html>
+		

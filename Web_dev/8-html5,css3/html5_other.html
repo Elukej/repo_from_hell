@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>HTML 5 AND CSS 3</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimal-ui">
+	
+		<style>
+			article {
+				color:green;
+				border:1px solid black
+			}
+			header, footer, article, section, nav, menu {
+				display: block;
+			}
+		
+		
+		</style>
+	
+	</head>
+	
+	<body>
+		<article>
+			i'm an article!
+		</article>
+		<container style="border:1px solid black;display:block;">
+			I'm a container
+		</container>
+		<figure style="border:1px solid black;display:inline-block">
+			<img data-description="Baby" id="baby" src="https://upload.wikimedia.org/wikipedia/en/thumb/9/9d/Maggie_Simpson.png/220px-Maggie_Simpson.png" alt="Maggie Simpson"
+			
+			<figcaption>
+				<p style="text-align:center"><mark>Maggie Simpson</mark> <small> (Wikipedia) </small></p>
+			</figcaption>
+		</figure>
+		
+		<input type="range" min="0" max="100" step="10" style="display:block;">
+		
+		<div contenteditable="true"> <!--ovo moze na bilo koji tag da ide -->
+			This is some text!
+		</div>
+		<ul contenteditable="true" style="list-style-type:upper-roman">
+			<li>Buy bread</li>
+			<li>Clean room</li>
+		
+		<script>
+			alert(document.getElementById("baby").getAttribute("data-description"));
+		</script>
+	
+	</body>
+</html>
+		

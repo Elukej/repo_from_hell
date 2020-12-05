@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>HTML 5 AND CSS 3</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum scale=1.0, user-scalable=no, minimal-ui">
+	
+	<style>
+		#myCanvas {
+			border: 1px solid grey;
+		}
+		#pracCanvas {
+			border: 1px solid grey;
+		}
+	</style>
+	
+	</head>
+	
+	<body>
+		<canvas id="myCanvas" width="500" height="400">
+		
+		</canvas>
+		<canvas id="pracCanvas" width="500" height="400"></canvas>
+		<script>
+			var myCanvas = document.getElementById("myCanvas");
+			var context = myCanvas.getContext("2d");
+			context.fillStyle ="#49C900";
+			context.fillRect(50, 100, 300, 120); <!--koordinate gore levo, pa sirina pa visina idu -->
+			
+			context.moveTo(0,400); <!--pocetak linije -->
+			context.lineTo(500,0);
+			context.lineWidth = 20;
+			context.strokeStyle="#F42924";
+			context.stroke();
+			
+			var prac = document.getElementById("pracCanvas");
+			var pracContext = prac.getContext("2d");
+			var gradient = pracContext.createLinearGradient(150, 100, 350, 300);
+			
+			gradient.addColorStop(0, "white");
+			gradient.addColorStop(1,"#49c900")
+			pracContext.fillStyle = gradient;
+			
+			pracContext.fillRect(150,100,200,200);
+			
+			pracContext.moveTo(150,100);
+			pracContext.lineTo(350,300);
+			pracContext.strokeStyle = "#F42924";
+			pracContext.lineWidth = 5;
+			pracContext.stroke(); 
+			
+			pracContext.moveTo(150,300);
+			pracContext.lineTo(350,100);
+			pracContext.stroke(); 
+			
+			pracContext.beginPath();
+			pracContext.arc(100, 100, 50, 0, 2*Math.PI);
+			pracContext.strokeStyle = "#0000ff";
+			pracContext.stroke();
+			
+			var textGradient = pracContext.createLinearGradient(200,50,300,50);
+			textGradient.addColorStop(0,"red");
+			textGradient.addColorStop(1,"yellow");
+			
+			pracContext.fillStyle = textGradient;
+			pracContext.font = "20px Arial";
+			pracContext.fillText("My Canvas",200, 50);
+
+		</script>
+	</body>
+</html>
+		
