@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>HTML 5 AND CSS 3</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum scale=1.0, user-scalable=no, minimal-ui">
+	
+	</head>
+	
+	<body>
+	
+		<form id="myForm>
+			<p>Placeholeder<input type="text" placeholder="Insert name here"></p>
+			
+			<p>Autofocus<input type="text" autofocus="autofocus"></p>
+			
+			<p>Autocomplete off<input type="text" autocomplete="off"></p>
+			<p>Required<input type="text" required></p>
+			
+			<p>Email<input type="email"></p>
+			
+			<p>Pattern<input type="text" pattern="[0-9]"</p> <!--regex matchovanje -->
+			
+				<datalist id="names">
+					<select>  <!-- ovo je zastita za starije browsere ako ne podrzavaju datalist, ali ne treba inace -->
+						<option value="Luka">
+						<option value="Igor">
+						<option value="Nada">
+					</select>
+				</datalist>
+			<p>Autocomplete<input type="text" list="names"></p>
+			
+			<p>Multiple file upload<input type="file" multiple></p>
+			<!-- ovo je neko cudo za uploadovanje fajlova. Ovo do sad nisam video -->
+
+			<p><input type="submit" value="Submit"></p>
+			
+			<p><input type="submit" value="Submit to processform2.php" formaction="processform2.php" formmethod="post"></p>
+			<!-- gornje dugme sa submituje na potpuno drugi php fajl od prvog! Dosta kul fora, cak i metod moze da se specificira -->
+		
+		
+		</form>
+		
+		<p>Code outside form: <input form="myForm type="text"></p> <!-- do jaja fora. Kod koji je odvojen od forme u layoutu ali se submituje sa njom! -->
+	</body>
+</html>
+		

@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+	<head>
+	<title>HTML 5 AND CSS 3</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimal-ui">
+	
+		<style>
+			h1 {
+				color:red;
+			}
+			.green {
+				color:green;
+			}
+			#blue {
+				font-size:150%;
+			}
+		
+			div p {
+				font-weight:bold;
+			}
+			h3 ~ p { 
+				/* ~ uzima svu decu istog roditelja(istog diva npr) i na njima primenjuje stilove*/
+				text-decoration:underline;
+			}
+			h3 + h1 { /* stilizuje h1 ako i samo ako ide odmah posle h3 */
+				font-size:250%;
+			}
+			a[target] { /* selektuje tag koji ima zadati atribut*/
+				color:yellow;
+			}
+			a[target]:hover { 
+				color:green;
+			}
+			a[href *= "google"]:hover { /* selektuje tag koji ima zadati atribut i cije deo imena naveden u atributu*/
+				color:pink;
+			}
+			input:focus {}
+			input:disabled {}
+			input:checked {}
+			
+			p:first-child { /* samo paragrafi koji su prva deca svojih roditelja (prvi pod element)*/
+				color:aquamarine;
+			}
+			p:last-child {
+				font-size:150%;
+			}
+			p:only-child {
+				text-decoration:underline;
+			}
+			p:first-of-type {
+				font-style:italic;
+			}
+			
+			/* last-of-type and only-of-type */
+			
+			tr:nth-child(2n) { /* selektuje parne redove */
+				background-color:green;
+			}
+			/* nth-last-child - ide od kraja/*
+			/* nth-of-type - broji samo elemente datog tipa unutar roditelja */
+			
+			div:empty {	/* selektuje divove bez sadrzaja */
+				display:none;
+			}
+			
+			p:not(.green) { /* svi paragrafi koji nemaju klas green */
+				color:blue;
+			}
+			
+			:not(div) {} /*selektuje sve sto nije div */
+
+			p:first-letter {
+				font-size:200%;
+				color:black;
+			}
+			
+			a:after {
+				content:"("attr(href)")";
+			}
+			
+			/* tako i before ima */
+			
+			
+		</style>
+	
+	</head>
+	
+	<!-- ^= - begins with
+		 $= - end with
+		 ~= - has the value between two spaces
+		 *= - contains the value
+		 |= has the value separated by hyphens(-)
+	-->
+	
+	
+	<body>
+		<div>
+			<h3>I'm heding for ~ selector</h3> 
+			<h1>I an a heading</h1>
+			<p class="green"> I am a paragraph</p>
+			<a id="blue" target="_blank" href="">I am a link</a>
+		</div>
+		<p> I am outside of the div</p>
+		<div><p>I'm in another div </p></div>
+		
+		<a href="http://www.google.com">Google</a>
+		<table>
+		<tr><td>Luka</td></tr>
+		<tr><td>Nada</td></tr>
+		<tr><td>Igor</td></tr>
+		<tr><td>Danica</td></tr>
+		</table>
+		
+	</body>
+</html>
+		
