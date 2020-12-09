@@ -31,7 +31,7 @@ breakLoop mode index acc listIndex fileString
                                                  newIndex = opParse (concat . drop 1 $ fileString !! index) $ index
 breakManager [] fileString = (0,0)
 breakManager (x:listIndex) fileString 
-                         | (fst $ breakLoop 0 (fst x) (snd x) [] newFileString) == (length fileString - 1) = breakLoop 0 (fst x) (snd x) [] newFileString
+                         | (fst $ breakLoop 0 (fst x) (snd x) [] newFileString) == (length fileString - 1) = (fst x, snd $ breakLoop 0 (fst x) (snd x) [] newFileString)
                          | otherwise                                                         = breakManager listIndex fileString
                                            where newFileString = changeEl (fst x) fileString 
 
