@@ -17,6 +17,18 @@ caseCombination (x:list) = case (length x) of 1 -> 2:(caseCombination list)
                                               2 -> 4:(caseCombination list)
                                               3 -> 7:(caseCombination list)  
 
+-- general case, not needed for this one so left for beauty
+{-   
+nrComb 1 = 2
+nrComb 2 = 4
+nrComb 3 = 7
+nrComb lengthNum = nrComb lengthNum + nrComb (lengthNum - 1) + nrComb (lengthNum - 2) 
+
+caseCombination :: [[Int]] -> [Int]
+caseCombination [] = []
+caseCombination (x:list) = nrComb (length x) : (caseCombination list)
+-}
+
 main = do lista <- filter (/= "") . lines <$> readFile "input_day10.txt"
           let listaInt = sort $ fmap (\x -> read x :: Int) lista
               (x, y) = differences (0,0) listaInt
