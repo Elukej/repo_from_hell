@@ -1,5 +1,5 @@
 --ispisivanje permutacija
-
+import Data.List
 
 --perm :: [a] -> [[a]] 
 perm [] = [[]]
@@ -14,6 +14,10 @@ perm list =  foldl (++) [] $ fmap (\xs -> fmap ((:) $ head xs) $ perm $ tail xs)
                              chBeg xs (y:ys)  
                                         | not (y `elem` ys) = [(y : dropFirst y xs)] ++ chBeg xs ys 
                                         | otherwise         = chBeg xs ys
+
+--main = do
+      --print $ perm [1..8] 7,757s
+      -- print $ permutations [1..8] 6,311s
 
 
 
