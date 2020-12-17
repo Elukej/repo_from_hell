@@ -3,11 +3,10 @@ import qualified Data.Text.IO as IOT
 import qualified Data.HashSet as HS
 import Data.List
 import Data.Array
-import Control.Concurrent (threadDelay)
 
 main = do [crit, ytic, otic] <- T.splitOn (T.pack "\n\n") <$> IOT.readFile "input_day16.txt"
           let nrOtic =  fmap ((\x -> read x :: Int) . T.unpack) . T.split (== ',') <$> (filter (/= T.pack "") . T.split (`elem` "\n") . T.drop 1 . T.dropWhile (/= '\n') $ otic)
-              nrCrit = fmap ((\x -> (read . T.unpack . head $ x :: Int, read . T.unpack .last $ x :: Int) ) . T.split (== '-')) <$> (T.splitOn (T.pack " or ") . T.strip . T.drop 1 . T.dropWhile (/= ':') <$> (T.lines crit))
+              nrCrit = fmap ((\x -> (read . T.unpack . head $ x :: Int, read . T.unpack . last $ x :: Int) ) . T.split (== '-')) <$> (T.splitOn (T.pack " or ") . T.strip . T.drop 1 . T.dropWhile (/= ':') <$> (T.lines crit))
               nrYtic = ((\x -> read x :: Int) . T.unpack) <$> (T.split (== ',') . T.drop 1 . T.dropWhile (/= '\n') $ ytic)
 
               notAllow = foldl (\acc (x,y) -> HS.filter (\z -> z < x || z > y) acc) (HS.fromList [0..999]) $ concat nrCrit
