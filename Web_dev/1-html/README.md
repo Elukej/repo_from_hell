@@ -1,2 +1,2 @@
-# This is just pure HTML. Fuck you Css! Fuck you Javascript! 
-There can be only oNe #HTML
+# This is just pure HTML. We don't need you Css! We don't need you Javascript! 
+There can be only one #HTML
